@@ -356,7 +356,7 @@ Creator: Pranav Joshi
     - Proof of 2nd statement
         
         $$
-        f(t) = \frac{1}{2\pi }\int_{\omega}\int_\tau f(\tau)e^{-j\omega \tau}e^{j\omega t}d\tau d\omega \\ = \frac{1}{2\pi }\int_\tau f(\tau)(\int_\omega e^{j(t-\tau)\omega}d\omega)d\tau \\ = \int_\tau f(\tau )(\frac{1}{2\pi}{\cal F}\{e^{jt\omega }\}(\tau)) d\tau \\= \int_\tau  f(\tau )\delta(\tau -t) d\tau  = f(t)
+        f(t) = \frac{1}{2\pi }\int_{\omega}\int_\tau f(\tau)e^{-j\omega \tau}e^{j\omega t}d\tau d\omega \\ = \frac{1}{2\pi }\int_\tau f(\tau)(\int_\omega e^{j(t-\tau)\omega}d\omega)d\tau \\ = \int_\tau f(\tau )(\frac{1}{2\pi}{F}\{e^{jt\omega }\}(\tau)) d\tau \\= \int_\tau  f(\tau )\delta(\tau -t) d\tau  = f(t)
         $$
         
     
@@ -378,9 +378,9 @@ Creator: Pranav Joshi
     Properties of FT :
     
     $$
-    \boxed{{\cal F}\{f(x-x_0)\}(u) =  F(u)e(-ux_0)} \\
-    \boxed{{\cal F}\{af(x)\}(u) =  aF(u)} \\
-    \boxed{{\cal F}\{f(R_\theta \vec x)\}(u) =  F(R_\theta \vec u)}
+    \boxed{{F}\{f(x-x_0)\}(u) =  F(u)e(-ux_0)} \\
+    \boxed{{F}\{af(x)\}(u) =  aF(u)} \\
+    \boxed{{F}\{f(R_\theta \vec x)\}(u) =  F(R_\theta \vec u)}
     $$
     
     These are called the shift, scale, and rotation properties.
@@ -396,13 +396,13 @@ Creator: Pranav Joshi
     Now, taking a FT of this, and using 
     
     $$
-    {\cal F}\{\delta(t-n\Delta t)\}(\omega) = e^{-j\omega n\Delta t}
+    {F}\{\delta(t-n\Delta t)\}(\omega) = e^{-j\omega n\Delta t}
     $$
     
     we can write
     
     $$
-    \hat C(\omega) = {\cal F}\{\text{Comb}(t-n{\Delta t})\}(\omega) = \sum_n e^{-j\omega n\Delta t} = \lim_{N\to \infty} \sum_{n=-N}^N e^{-j\omega n\Delta t} \\ = \lim_{N\to \infty}z^N(z^{-(2N+1)}-1)/(z^{-1}-1) \\ = \lim_{N\to \infty }\frac{z^{-(N+1/2)}-z^{(N+1/2)}}{z^{-1/2}-z^{1/2}} \\ = \lim_{N\to \infty}\frac{\sin(\omega\Delta t(N+1/2))}{\sin(\omega\Delta t/2)}
+    \hat C(\omega) = {F}\{\text{Comb}(t-n{\Delta t})\}(\omega) = \sum_n e^{-j\omega n\Delta t} = \lim_{N\to \infty} \sum_{n=-N}^N e^{-j\omega n\Delta t} \\ = \lim_{N\to \infty}z^N(z^{-(2N+1)}-1)/(z^{-1}-1) \\ = \lim_{N\to \infty }\frac{z^{-(N+1/2)}-z^{(N+1/2)}}{z^{-1/2}-z^{1/2}} \\ = \lim_{N\to \infty}\frac{\sin(\omega\Delta t(N+1/2))}{\sin(\omega\Delta t/2)}
     $$
     
     This is clearly periodic (in $\omega$) with a period of $2\pi/\Delta t$ and $\hat C(0) = \infty$ . 
@@ -420,7 +420,7 @@ Creator: Pranav Joshi
     Then, we define
     
     $$
-    \hat {CF}(\omega) = {\cal F}\{\sum_n \delta (t-n\Delta t)f[n]\}(\omega) \\= \sum_n f[n]e^{-j\omega n\Delta t}
+    \hat {CF}(\omega) = {F}\{\sum_n \delta (t-n\Delta t)f[n]\}(\omega) \\= \sum_n f[n]e^{-j\omega n\Delta t}
     $$
     
     That’s .. the DTFT…
@@ -468,7 +468,7 @@ Creator: Pranav Joshi
     Essentially, what we have proved is that
     
     $$
-    \text{DTFT}\{f[n]\}(\omega) = {\cal F}\{\text{Comb}(t|\Delta t)\cdot f(t)\}(\omega) = \hat {CF}(\omega)  \\= \frac{1}{2\pi}\hat C (\omega) * F(\omega)  \\ = \frac{1}{\Delta t}\sum _k F(\omega - \frac{2\pi k}{\Delta t})
+    \text{DTFT}\{f[n]\}(\omega) = {F}\{\text{Comb}(t|\Delta t)\cdot f(t)\}(\omega) = \hat {CF}(\omega)  \\= \frac{1}{2\pi}\hat C (\omega) * F(\omega)  \\ = \frac{1}{\Delta t}\sum _k F(\omega - \frac{2\pi k}{\Delta t})
     $$
     
     So clearly, if $F(\omega) = 0$ where $|\omega| \ge \pi /\Delta t$ , then 
@@ -576,7 +576,7 @@ Creator: Pranav Joshi
     So, defining 
     
     $$
-    \text{OTF}_x(k) = \frac{{\cal F}\{\text{PSF}\}(k,0)}{{\cal F}\{\text{PSF}\}(0,0)}
+    \text{OTF}_x(k) = \frac{{F}\{\text{PSF}\}(k,0)}{{F}\{\text{PSF}\}(0,0)}
     $$
     
     we can simply write the new complex modulation as OTF times old one. 
@@ -1005,7 +1005,7 @@ Creator: Pranav Joshi
     That is how the intuitive thing goes, but in practice, a different algorithm is used, which involves back-projecting 
     
     $$
-    Q(r,\theta) \\= {\cal F^{-1}_\omega}\{|\omega|\hat p(\omega,\theta)\} \\= {\cal F^{-1}_\omega}\{ |\omega|{\cal F_r}\{p(r,\theta)\}(\omega)\}
+    Q(r,\theta) \\= {F^{-1}_\omega}\{|\omega|\hat p(\omega,\theta)\} \\= {F^{-1}_\omega}\{ |\omega|{F_r}\{p(r,\theta)\}(\omega)\}
     $$
     
     to get $\mu(x,y)$ . Note that the FFTs here are 1D as opposed to 2D. 
