@@ -985,13 +985,13 @@ Creator: Pranav Joshi
     Now, with this, can write
     
     $$
-    {\cal F_2}\{b\}(\vec \omega) = \hat b = \hat \mu \cdot \hat B
+    F_2\{b\}(\vec \omega) = \hat b = \hat \mu \cdot \hat B
     $$
     
     It happens that
     
     $$
-    {\cal F_2}\{B\}(\vec \omega) = \frac{1}{|\vec \omega|}
+    F_2\{B\}(\vec \omega) = \frac{1}{|\vec \omega|}
     $$
     
     What this means is
